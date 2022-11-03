@@ -10,10 +10,11 @@
 <body>
     <header>
         <h1>Auth</h1>
+        
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+        </nav>
+        
     </header>
-
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="register.php">Register</a>
-        <a href="login.php"></a>
-    </nav>
