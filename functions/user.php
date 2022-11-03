@@ -22,4 +22,16 @@ function register_user($firstname, $lastname, $email, $password)
     }
 }
 
+function register_check_email($email)
+{
+    global $link;
+    $email  = mysqli_real_escape_string($link, $email); 
+    $query  = "SELECT * FROM users WHERE email = '$email'";
+
+    if ( $result = mysqli_query($link, $query) ){
+        if (mysqli_num_rows($result) == 0) return true;
+        else return false;
+    }
+}
+
 ?>

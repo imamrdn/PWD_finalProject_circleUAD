@@ -11,12 +11,16 @@ if (isset($_POST['submit'])) {
 
     if (!empty(trim($firstname)) && !empty(trim($lastname))) {
         if (!empty(trim($email)) && !empty(trim($password))) {
-
-            //insert data to database
-            if (register_user($firstname, $lastname, $email, $password)){
-                echo 'berhasil';
+            //check data equality
+            if (register_check_email($email)){
+                //insert data to database
+                if (register_user($firstname, $lastname, $email, $password)){
+                    echo 'berhasil';
+                } else {
+                    echo 'gagal daftar';
+                }
             } else {
-                echo 'gagal daftar';
+                echo 'email sudah terdaftar';
             }
         }
     } else {
