@@ -8,10 +8,13 @@ if (isset($_POST['submit'])) {
     $password   = $_POST['password'];
 
     if (!empty(trim($email)) && !empty(trim($password))) {
-        
         if (login_check_email($email)){
-            die('email ada');
-            check_data($email, $password);
+            if(check_data($email, $password)){
+                $_SESSION['user'] = $email;
+                header('Location: index.php'); 
+            } else {
+                echo 'data ada yang salah';
+            }
         } else {
             echo 'email belum terdaftar';
         }

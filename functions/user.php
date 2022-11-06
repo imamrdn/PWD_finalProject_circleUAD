@@ -59,7 +59,9 @@ function check_data($email, $password)
     $hash = mysqli_fetch_assoc($result)['password'];
 
     if(password_verify($password, $hash)){
-        
+        return true;
+    } else {
+        return false;
     }
 }
 
