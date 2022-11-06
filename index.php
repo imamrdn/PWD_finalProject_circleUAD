@@ -2,7 +2,10 @@
 
     require_once "core/init.php";
 
-    if ( !isset($_SESSION['user']) ) header('login.php');
+    if ( !isset($_SESSION['user']) ) {
+        $_SESSION['message'] = 'anda harus login'; 
+        header('Location: login.php');
+    }         
 
     require_once "view/header.php";
 

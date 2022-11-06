@@ -5,7 +5,10 @@
     $error = '';
 
     // user is logged in
-    if ( isset($_SESSION['user']) ) header('index.php');
+    if ( isset($_SESSION['user']) ) {
+        
+        header('index.php');
+    }
 
     // register validation
     if (isset($_POST['submit'])) {
@@ -27,6 +30,9 @@
     } 
 
     require_once "view/header.php";
+
+    if (isset($_SESSION['message']))
+        flash_message($_SESSION['message']); 
 
 ?>
 

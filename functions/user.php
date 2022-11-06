@@ -59,4 +59,10 @@ function redirect($email)
     header('Location: index.php');
 }
 
+function flash_message($name)
+{
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+
 ?>
