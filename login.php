@@ -1,37 +1,27 @@
 <?php 
 
-require_once "core/init.php";
+    require_once "core/init.php";
 
-$error = '';
+    $error = '';
 
-// user is logged in
-if ( isset($_SESSION['user']) ){
-    header('index.php');
-}
+    // user is logged in
+    if ( isset($_SESSION['user']) ) header('index.php');
 
+    // login validation
+    if (isset($_POST['submit'])) {
+        $email      = $_POST['email'];
+        $password   = $_POST['password'];
 
-// login validation
-if (isset($_POST['submit'])) {
-    $email      = $_POST['email'];
-    $password   = $_POST['password'];
+        if (!empty(trim($email)) && !empty(trim($password))) {
+            if (check_email($email) != 0){
+                if(check_data($email, $password)) redirect($email);
+                else $error = 'data ada yang salah';
+            } else $error = 'email belum terdaftar';
+        } else $error = 'tidak boleh kosong';
 
-    if (!empty(trim($email)) && !empty(trim($password))) {
-        if (check_email($email) != 0){
-            if(check_data($email, $password)){
-                redirect($email);
-            } else {
-                $error = 'data ada yang salah';
-            }
-        } else {
-            $error = 'email belum terdaftar';
-        }
-    } else {
-        $error = 'tidak boleh kosong';
+    } 
 
-    }
-}
-
-require_once "view/header.php";
+    require_once "view/header.php";
 
 ?>
 

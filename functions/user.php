@@ -15,11 +15,8 @@ function register_user($firstname, $lastname, $email, $password)
 
     $query = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
 
-    if (mysqli_query($link, $query)) {
-        return true;
-    } else {
-        return false;
-    }
+    if (mysqli_query($link, $query)) return true;
+    else return false;
 }
 
 function check_email($email)
@@ -28,9 +25,9 @@ function check_email($email)
     $email  = escape($email); 
     $query  = "SELECT * FROM users WHERE email = '$email'";
 
-    if ( $result = mysqli_query($link, $query) ){
+    if ( $result = mysqli_query($link, $query) )
         return mysqli_num_rows($result);
-    }
+
 }
 
 function check_data($email, $password)
@@ -45,11 +42,8 @@ function check_data($email, $password)
     $result = mysqli_query($link, $query);
     $hash = mysqli_fetch_assoc($result)['password'];
 
-    if(password_verify($password, $hash)){
-        return true;
-    } else {
-        return false;
-    }
+    if(password_verify($password, $hash)) return true;
+    else return false;
 }
 
 // injection func

@@ -1,42 +1,32 @@
 <?php 
 
-require_once "core/init.php";
+    require_once "core/init.php";
 
-$error = '';
+    $error = '';
 
-// user is logged in
-if ( isset($_SESSION['user']) ){
-    header('index.php');
-}
+    // user is logged in
+    if ( isset($_SESSION['user']) ) header('index.php');
 
-// register validation
-if (isset($_POST['submit'])) {
-    $firstname  = $_POST['firstname'];
-    $lastname   = $_POST['lastname'];
-    $email      = $_POST['email'];
-    $password   = $_POST['password'];
+    // register validation
+    if (isset($_POST['submit'])) {
+        $firstname  = $_POST['firstname'];
+        $lastname   = $_POST['lastname'];
+        $email      = $_POST['email'];
+        $password   = $_POST['password'];
 
-    if (!empty(trim($firstname)) && !empty(trim($lastname))) {
-        if (!empty(trim($email)) && !empty(trim($password))) {
-            //check data equality
-            if (check_email($email) == 0){
-                //insert data to database
-                if (register_user($firstname, $lastname, $email, $password)){
-                    redirect($email);
-                } else {
-                    $error = 'gagal daftar';
+        if (!empty(trim($firstname)) && !empty(trim($lastname))) {
+            if (!empty(trim($email)) && !empty(trim($password))) {
+                //check data equality
+                if (check_email($email) == 0){
+                    //insert data to database
+                    if (register_user($firstname, $lastname, $email, $password)) redirect($email);
+                    else $error = 'gagal daftar';
                 }
-            } else {
-                $error = 'email sudah terdaftar';
-            }
-        }
-    } else {
-        $error = 'tidak boleh kosong';
+            } else $error = 'email sudah terdaftar';
+        } else $error = 'tidak boleh kosong';
+    } 
 
-    }
-}
-
-require_once "view/header.php";
+    require_once "view/header.php";
 
 ?>
 

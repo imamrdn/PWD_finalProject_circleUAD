@@ -1,12 +1,10 @@
 <?php 
 
-require_once "core/init.php";
+    require_once "core/init.php";
 
-if ( !isset($_SESSION['user']) ){
-    die('anda belum login');
-}
+    if ( !isset($_SESSION['user']) ) header('login.php');
 
-require_once "view/header.php";
+    require_once "view/header.php";
 
 ?>
 
@@ -14,5 +12,5 @@ require_once "view/header.php";
 
 
 <?php 
-require_once "view/footer.php"; 
+    require_once "view/footer.php"; 
 ?>
