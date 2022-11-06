@@ -2,11 +2,12 @@
 
 require_once "core/init.php";
 
+$error = '';
+
 // user is logged in
 if ( isset($_SESSION['user']) ){
     header('index.php');
 }
-
 
 // register validation
 if (isset($_POST['submit'])) {
@@ -21,16 +22,16 @@ if (isset($_POST['submit'])) {
             if (register_check_email($email)){
                 //insert data to database
                 if (register_user($firstname, $lastname, $email, $password)){
-                    echo 'berhasil';
+                    $error = 'berhasil';
                 } else {
-                    echo 'gagal daftar';
+                    $error = 'gagal daftar';
                 }
             } else {
-                echo 'email sudah terdaftar';
+                $error = 'email sudah terdaftar';
             }
         }
     } else {
-        echo 'tidak boleh kosong';
+        $error = 'tidak boleh kosong';
 
     }
 }
@@ -53,6 +54,12 @@ require_once "view/header.php";
     <input type="password" name="password" id="password"><br>
 
     <input type="submit" name="submit" value="Register">
+
+    <?php if($error != '') { ?>
+        <div id="error">
+            <?php echo $error; ?>
+        </div>
+    <?php } ?>
 
 </form>
 

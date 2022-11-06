@@ -20,3 +20,9 @@ footer {
     padding: 5px;
     margin-top: 20px;
 }
+
+div#error {
+    background-color: rgb(212, 19, 65);
+    color: white;
+    padding: 5px;
+}

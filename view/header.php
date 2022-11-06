@@ -12,8 +12,6 @@
         <h1>Auth</h1>
         
         <nav>
-            
-
             <?php if(!isset($_SESSION['user'])) { ?>
                 <a href="register.php">Register</a>
                 <a href="login.php">Login</a>
