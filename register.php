@@ -63,7 +63,7 @@
             </div>
 
             <div class="mt-4">
-                <label>Already have an account ? <a href="login.html" class="link">Sign In</a></label>
+                <label>Already have an account ? <a href="login.php" class="link">Sign In</a></label>
             </div>
 
             <?php if($error != '') { ?>
