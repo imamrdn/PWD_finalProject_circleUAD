@@ -65,4 +65,16 @@ function flash_message($name)
     unset($_SESSION['message']);
 }
 
+function check_role($name)
+{
+    global $link;
+    $name = escape($name);
+
+    $query  = "SELECT role FROM users WHERE email = '$name'";
+    $result = mysqli_query($link, $query);
+    $role = mysqli_fetch_assoc($result)['role'];
+
+    return $role;
+}
+
 ?>
