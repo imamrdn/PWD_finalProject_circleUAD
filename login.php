@@ -2,7 +2,13 @@
 
 require_once "core/init.php";
 
-// register validation
+// user is logged in
+if ( isset($_SESSION['user']) ){
+    header('index.php');
+}
+
+
+// login validation
 if (isset($_POST['submit'])) {
     $email      = $_POST['email'];
     $password   = $_POST['password'];
