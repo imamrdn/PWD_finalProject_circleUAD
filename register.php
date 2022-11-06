@@ -6,7 +6,7 @@
 
     // user is logged in
     if ( isset($_SESSION['user']) ) {
-        header('index.php');
+        header('Location: index.php');
     }
 
     // register validation
