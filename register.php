@@ -19,10 +19,10 @@ if (isset($_POST['submit'])) {
     if (!empty(trim($firstname)) && !empty(trim($lastname))) {
         if (!empty(trim($email)) && !empty(trim($password))) {
             //check data equality
-            if (register_check_email($email)){
+            if (check_email($email) == 0){
                 //insert data to database
                 if (register_user($firstname, $lastname, $email, $password)){
-                    $error = 'berhasil';
+                    redirect($email);
                 } else {
                     $error = 'gagal daftar';
                 }

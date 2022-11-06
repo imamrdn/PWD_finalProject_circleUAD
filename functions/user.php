@@ -5,10 +5,10 @@ function register_user($firstname, $lastname, $email, $password)
     global $link;
 
     //avoid sql injection
-    $firstname  = mysqli_real_escape_string($link, $firstname);
-    $lastname   = mysqli_real_escape_string($link, $lastname);
-    $email      = mysqli_real_escape_string($link, $email); 
-    $password   = mysqli_real_escape_string($link, $password);
+    $firstname  = escape($firstname);
+    $lastname   = escape($lastname);
+    $email      = escape($email); 
+    $password   = escape($password);
 
     //password hash
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -22,27 +22,14 @@ function register_user($firstname, $lastname, $email, $password)
     }
 }
 
-function register_check_email($email)
+function check_email($email)
 {
     global $link;
-    $email  = mysqli_real_escape_string($link, $email); 
+    $email  = escape($email); 
     $query  = "SELECT * FROM users WHERE email = '$email'";
 
     if ( $result = mysqli_query($link, $query) ){
-        if (mysqli_num_rows($result) == 0) return true;
-        else return false;
-    }
-}
-
-function login_check_email($email)
-{
-    global $link;
-    $email  = mysqli_real_escape_string($link, $email); 
-    $query  = "SELECT * FROM users WHERE email = '$email'";
-
-    if ( $result = mysqli_query($link, $query) ){
-        if (mysqli_num_rows($result) != 0) return true;
-        else return false;
+        return mysqli_num_rows($result);
     }
 }
 
@@ -51,8 +38,8 @@ function check_data($email, $password)
     global $link;
 
     //avoid sql injection
-    $email      = mysqli_real_escape_string($link, $email); 
-    $password   = mysqli_real_escape_string($link, $password);
+    $email      = escape($email); 
+    $password   = escape($password);
 
     $query  = "SELECT password FROM users WHERE email = '$email'";
     $result = mysqli_query($link, $query);
@@ -63,6 +50,19 @@ function check_data($email, $password)
     } else {
         return false;
     }
+}
+
+// injection func
+function escape($data)
+{
+    global $link;
+    return mysqli_real_escape_string($link, $data);
+}
+
+function redirect($email)
+{
+    $_SESSION['user'] = $email;
+    header('Location: index.php');
 }
 
 ?>

@@ -16,10 +16,9 @@ if (isset($_POST['submit'])) {
     $password   = $_POST['password'];
 
     if (!empty(trim($email)) && !empty(trim($password))) {
-        if (login_check_email($email)){
+        if (check_email($email) != 0){
             if(check_data($email, $password)){
-                $_SESSION['user'] = $email;
-                header('Location: index.php'); 
+                redirect($email);
             } else {
                 $error = 'data ada yang salah';
             }
