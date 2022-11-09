@@ -27,5 +27,4 @@
         header("Location: register.php");
     } 
 
-
 ?>
