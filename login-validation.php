@@ -1,6 +1,6 @@
 <?php
 
-include 'core/init.php';
+require_once 'core/init.php';
 
 // login validation
 if (isset($_POST['submit'])) {
