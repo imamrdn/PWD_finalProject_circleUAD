@@ -59,10 +59,24 @@ function redirect($email)
     header('Location: index.php');
 }
 
-function flash_message($name)
+function set_flash_message($tipe, $pesan)
 {
-    echo $_SESSION['message'];
-    unset($_SESSION['message']);
+    $_SESSION['notifikasi'] = [
+        'tipe' => $tipe,
+        'pesan' => $pesan
+    ];
+
+    return true;
+}
+
+function show_flash_message()
+{
+    if (isset($_SESSION['notifikasi'])) {
+        $tipe = $_SESSION['notifikasi']['tipe'];
+        $pesan = $_SESSION['notifikasi']['pesan'];
+        echo "<script> Toast.fire({ icon: '$tipe', title: '$pesan'  }); </script>";
+        unset($_SESSION['notifikasi']);
+    }
 }
 
 function check_role($name)

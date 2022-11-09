@@ -2,36 +2,13 @@
 
     require_once "core/init.php";
 
-    $error = '';
-
     // user is logged in
     if ( isset($_SESSION['user']) ) {
         header('Location: index.php');
     }
 
-    // register validation
-    if (isset($_POST['submit'])) {
-        $firstname  = $_POST['firstname'];
-        $lastname   = $_POST['lastname'];
-        $email      = $_POST['email'];
-        $password   = $_POST['password'];
-
-        if (!empty(trim($firstname)) && !empty(trim($lastname))) {
-            if (!empty(trim($email)) && !empty(trim($password))) {
-                //check data equality
-                if (check_email($email) == 0){
-                    //insert data to database
-                    if (register_user($firstname, $lastname, $email, $password)) redirect($email);
-                    else $error = 'gagal daftar';
-                }
-            } else $error = 'email sudah terdaftar';
-        } else $error = 'tidak boleh kosong';
-    } 
-
     require_once "view/header.php";
 
-    if (isset($_SESSION['message']))
-        flash_message($_SESSION['message']); 
 
 ?>
 
@@ -44,7 +21,7 @@
             <h2 class="card-title fw-bold">Create account</h2>
             <h6 class="card-subtitle text-muted mt-1 mb-5 fw-bold">Register yourself to enjoy this app</h6>
             
-            <form action="register.php" method="post">
+            <form action="register-validation.php" method="post">
             <div class="mb-3">
                 <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
             </div>
@@ -66,11 +43,6 @@
                 <label>Already have an account ? <a href="login.php" class="link">Sign In</a></label>
             </div>
 
-            <?php if($error != '') { ?>
-                <div id="error">
-                    <?php echo $error; ?>
-                </div>
-            <?php } ?>
             </form>
         </div>
         </div>
