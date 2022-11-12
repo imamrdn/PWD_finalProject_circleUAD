@@ -4,7 +4,7 @@
 
     // user is logged in
     if ( isset($_SESSION['user']) ) {
-        header('Location: index.php');
+        header('Location: profile.php');
     }
 
     require_once "view/header.php";
