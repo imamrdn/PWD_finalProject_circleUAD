@@ -4,9 +4,7 @@
     // user is logged in
     if ( isset($_SESSION['user']) ) {
         header('Location: index.php');
-    } else {
-        set_flash_message('error', 'You are not logged in');
-    }
+    } 
     
     require_once "view/header.php";
 ?>

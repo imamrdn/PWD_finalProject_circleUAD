@@ -1,5 +1,14 @@
 <?php 
 
+function get_all_user()
+{
+    global $link;
+    $query = "SELECT firstname, lastname, email FROM users";
+    $result = mysqli_query($link, $query);
+    
+    return $result;
+}
+
 function register_user($firstname, $lastname, $email, $password)
 {
     global $link;

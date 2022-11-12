@@ -1,30 +1,18 @@
 <?php
-include "init.php";
-$sql = "SELECT * FROM users ORDER BY email";
-$tampil = mysqli_query($link, $sql);
 
+require_once 'core/init.php';
 
-if ( check_role($_SESSION['user']=='0')) {
-    echo "AKSES DI TOLAK!";
-    echo "<br><a href='../login.php'>LOGIN</a>";
-    die();
+if ( check_role($_SESSION['user']) == '0' ) {
+    set_flash_message('error', 'You have not access to this page');
+    header('Location: index.php');
 }
 
+$users = get_all_user();
+
+require_once 'view/header.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-</head>
-
-<body>
     <h2>User</h2>
-    <a href="../logout.php">Logout</a>
+    <a href="index.php">Profile</a>
 
     <table border="1" width="80%" style="margin:0 auto; margin-top: 1em; ">
         <thead>
@@ -32,17 +20,20 @@ if ( check_role($_SESSION['user']=='0')) {
                 <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>role</th>
+                <th></th> <!--  Action -->
             </tr>
         </thead>
-        <?php if (mysqli_num_rows($tampil) > 0) : ?>
+        <?php if (mysqli_num_rows($users) > 0) : ?>
             <?php $no = 1; ?>
-            <?php while ($r = mysqli_fetch_array($tampil)) : ?>
+            <?php while ($r = mysqli_fetch_array($users)) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $r['firstname']." ".$r['lastname'] ?></td>
                     <td><?= $r['email'] ?></td>
-                    <td><?= $r['role'] ?></td>
+                    <td>
+                        action (delete/edit)
+                    </td>
+                    
                 </tr>
             <?php endwhile; ?>
         <?php else : ?>
@@ -55,6 +46,5 @@ if ( check_role($_SESSION['user']=='0')) {
 
         </tbody>
     </table>
-</body>
 
-</html>
+    <?php require_once 'view/footer.php' ?>
