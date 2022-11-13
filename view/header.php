@@ -22,6 +22,9 @@
     <title>Circle UAD</title>
   </head>
 <body>
+
+<?php if ( isset($_SESSION['user']) ) { ?>
+
 <div class="m-auto" style="width: 80%;" >
   <nav class="navbar navbar-expand-lg navbar-light py-4">
     <a class="navbar-brand" href="#">Circle UAD</a>
@@ -42,3 +45,5 @@
         </li>
     </div>
   </nav>
+
+<?php } ?>
