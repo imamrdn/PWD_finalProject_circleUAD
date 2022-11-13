@@ -7,12 +7,14 @@
     <div class="d-flex justify-content-center mx-auto mt-3 mb-3">
         <div class="mx-3" style="width: 50%">
             <div>
-                <textarea class="form-control" aria-label="With textarea" placeholder="What do you want to say ?"></textarea>
-                <a href="#" class="btn btn-primary fw-bold px-4 my-2">Post</a>
+                <textarea class="form-control rounded" aria-label="With textarea" placeholder="What do you want to say ?" style="height: 70px; "></textarea>
+                <div class="d-flex justify-content-start">
+                    <a href="#" class="btn btn-primary fw-bold px-4 my-2">Create Post</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center mx-auto"">
+    <div class="d-flex justify-content-center mx-auto">
         <div class="card mx-3" style="width: 50%">
             <div class="card-body">
                 <h5 class="card-title fw-bold">Imam Ramadhan</h5>
