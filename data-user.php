@@ -12,7 +12,6 @@ $users = get_all_user();
 require_once 'view/header.php';
 ?>
     <h2>User</h2>
-    <a href="profile.php">Profile</a>
 
     <table border="1" width="80%" style="margin:0 auto; margin-top: 1em; ">
         <thead>

@@ -10,10 +10,8 @@
 ?>  
 
 <h1>Halaman profil <?php echo $_SESSION['user']; ?> </h1>
-<a href="logout.php">Logout</a>
-
 <?php if( check_role($_SESSION['user']) == '1' ) { ?>
-    <a href="data-user.php"><br>Lihat Data User</a>
+    <a href="data-user.php"><br>Data User</a>
     <div>Halo admin</div>
 <?php } ?>
 
