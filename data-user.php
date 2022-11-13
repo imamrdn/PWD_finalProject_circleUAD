@@ -4,7 +4,7 @@ require_once 'core/init.php';
 
 if ( check_role($_SESSION['user']) == '0' ) {
     set_flash_message('error', 'You have not access to this page');
-    header('Location: index.php');
+    header('Location: profile.php');
 }
 
 $users = get_all_user();
@@ -12,7 +12,6 @@ $users = get_all_user();
 require_once 'view/header.php';
 ?>
     <h2>User</h2>
-    <a href="index.php">Profile</a>
 
     <table border="1" width="80%" style="margin:0 auto; margin-top: 1em; ">
         <thead>

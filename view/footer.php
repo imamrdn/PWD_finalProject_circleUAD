@@ -1,4 +1,4 @@
-
+</div>
     <script>
         const Toast = Swal.mixin({
             toast: true,
