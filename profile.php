@@ -28,6 +28,7 @@
         </thead>
     <?php
         if (mysqli_num_rows($timeline) > 0) {
+            $no = 1;
             while ($result = mysqli_fetch_array($timeline)) { 
                 $timestamp  = $result['created_at'];
                 $date       = strtotime($result['created_at']); 
@@ -39,7 +40,7 @@
         ?>
         <tbody>
             <tr>
-            <th scope="row"></th>
+            <th scope="row"><?= $no++ ?></th>
             <td><?= $firstname . ' ' . $lastname ?></td>
             <td><?= $message ?></td>
             <td><?= $realdate ?></td>
