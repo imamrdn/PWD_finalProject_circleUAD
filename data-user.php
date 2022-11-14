@@ -1,15 +1,13 @@
 <?php
+    require_once 'core/init.php';
 
-require_once 'core/init.php';
+    if ( check_role($_SESSION['user']) == '0' ) {
+        set_flash_message('error', 'You have not access to this page');
+        header('Location: profile.php');
+    }
 
-if ( check_role($_SESSION['user']) == '0' ) {
-    set_flash_message('error', 'You have not access to this page');
-    header('Location: profile.php');
-}
-
-$users = get_all_user();
-
-require_once 'view/header.php';
+    $users = get_all_user();
+    require_once 'view/header.php';
 ?>
     <h2>User</h2>
 
@@ -46,4 +44,4 @@ require_once 'view/header.php';
         </tbody>
     </table>
 
-    <?php require_once 'view/footer.php' ?>
+<?php require_once 'view/footer.php' ?>

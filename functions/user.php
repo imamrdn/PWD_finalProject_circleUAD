@@ -3,7 +3,7 @@
 function get_all_user()
 {
     global $link;
-    $query = "SELECT firstname, lastname, email FROM users";
+    $query = "SELECT firstname, lastname, email FROM users WHERE role = 0";
     $result = mysqli_query($link, $query);
     
     return $result;
