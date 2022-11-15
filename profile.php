@@ -40,14 +40,16 @@
                 $lastname   = $result['lastname'];
                 $message    = $result['message'];
         ?>
-        <tbody ">
+        <tbody>
             <tr>
             <th scope="row"><?= $no++ ?></th>
             <td><?= $message ?></td>
             <td><?= $firstname . ' ' . $lastname ?></td>
             <td><?= $realdate ?></td>
             <td><?= $realtime ?></td>
-            <td><span href="#" class="material-symbols-outlined btn btn-danger fw-bold">Delete</span></td>
+            <td>
+                <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-status.php?id=<?= $result['id'] ?>" >Delete</a>
+            </td>
             </tr>
         </tbody>
 
