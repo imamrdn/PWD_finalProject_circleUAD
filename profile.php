@@ -10,17 +10,19 @@
     require_once "view/header.php";
 ?>  
 
-<h1>Hi👋 <?php echo $_SESSION['user']; ?> </h1>
+<h1 class="fw-bold">Hi👋 <?php echo $_SESSION['user']; ?> </h1>
 <?php if( check_role($_SESSION['user']) == '1' ) { ?>
     <div class="d-flex justify-content-end">
-        <a class="btn btn-success fw-bold" href="data-user.php">Data User</a>    
+        <a class="btn btn-success fw-bold mx-1" href="data-user.php">User Data</a>
     </div>
-    <table class="table table-striped table-hover my-3 ">
+    <hr style="border: solid 1px gray">
+    <table class="table table-striped table-hover my-3 mx-auto" style="border-radius: 10px; width:100%;">
+        <caption>List of messages</caption>
         <thead>
             <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
             <th scope="col">Message</th>
+            <th scope="col">User</th>
             <th scope="col">Date</th>
             <th scope="col">Time</th>
             <th scope="col"></th>
@@ -38,11 +40,11 @@
                 $lastname   = $result['lastname'];
                 $message    = $result['message'];
         ?>
-        <tbody>
+        <tbody ">
             <tr>
             <th scope="row"><?= $no++ ?></th>
-            <td><?= $firstname . ' ' . $lastname ?></td>
             <td><?= $message ?></td>
+            <td><?= $firstname . ' ' . $lastname ?></td>
             <td><?= $realdate ?></td>
             <td><?= $realtime ?></td>
             <td><span href="#" class="material-symbols-outlined btn btn-danger fw-bold">Delete</span></td>
