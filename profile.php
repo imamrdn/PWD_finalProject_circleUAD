@@ -7,15 +7,12 @@
     }
 
     $timeline = get_all_message();
+    $name = get_name_user();
     require_once "view/header.php";
+    require_once "view/header-profile.php"
 ?>  
 
-<h1 class="fw-bold">Hi👋 <?php echo $_SESSION['user']; ?> </h1>
 <?php if( check_role($_SESSION['user']) == '1' ) { ?>
-    <div class="d-flex justify-content-end">
-        <a class="btn btn-success fw-bold mx-1" href="data-user.php">User Data</a>
-    </div>
-    <hr style="border: solid 1px gray">
     <table class="table table-striped table-hover my-3 mx-auto" style="border-radius: 10px; width:100%;">
         <caption>List of messages</caption>
         <thead>
@@ -34,13 +31,12 @@
             while ($result = mysqli_fetch_array($timeline)) { 
                 $timestamp  = $result['created_at'];
                 $date       = strtotime($result['created_at']); 
-                $realdate   = date('M d, Y',$date);
-                $realtime   = date("h:i", $date);
+                $realdate   = date('F d, Y',$date);
+                $realtime   = date("h:i A", $date);
                 $firstname  = $result['firstname'];
                 $lastname   = $result['lastname'];
                 $message    = $result['message'];
         ?>
-        <tbody>
             <tr>
             <th scope="row"><?= $no++ ?></th>
             <td><?= $message ?></td>
@@ -51,15 +47,12 @@
                 <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-status.php?id=<?= $result['id'] ?>" >Delete</a>
             </td>
             </tr>
-        </tbody>
 
         <?php } ?>
     <?php } ?>
     </table>
 <?php } ?>
 
-<?php 
-    require_once "view/footer.php";
-?>
+<?php require_once "view/footer.php"; ?>
 
 

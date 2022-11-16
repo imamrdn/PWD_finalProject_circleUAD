@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body, html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 12px;
     background-color: #e9eef3;
     height: 100%;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .container {
@@ -53,4 +53,29 @@ input[type="password"] {
 
 .link:hover {
     text-decoration: none;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+/* index.php */
+.message {
+    width: 50%; 
+    border-radius: 10px; 
+    border: none; 
+}
+
+
+@media (max-width: 620px) {
+    /* For mobile phones: */
+    div.message {
+        width: 100%;
+        margin: 0;
+    }
+
+    .width-responsive {
+        width: 100%;
+    }
+
 }
