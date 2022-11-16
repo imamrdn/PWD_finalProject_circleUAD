@@ -44,7 +44,7 @@
             <td><?= $realdate ?></td>
             <td><?= $realtime ?></td>
             <td>
-                <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-status.php?id=<?= $result['id'] ?>" >Delete</a>
+                <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-message.php?id=<?= $result['id_timeline']?>" >Delete</a>
             </td>
             </tr>
 
