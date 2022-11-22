@@ -44,9 +44,12 @@ require_once 'view/header.php';
         </tr>
     <?php endif; ?>
 
-    <tbody>
+    <<<<<<< HEAD <tbody>
 
-    </tbody>
+        </tbody>
 </table>
+=======
+</table>
+>>>>>>> e0362e651c48204e4f34f38afb6b570bc7734f6e
 
 <?php require_once 'view/footer.php' ?>
