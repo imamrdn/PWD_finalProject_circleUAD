@@ -45,7 +45,7 @@
                     <?php if($_SESSION['user'] == $result['email']) { ?>
                         <div class="d-flex justify-content-end">
                             <a href="#" class="btn btn-warning fw-bold mx-1">Edit</a>
-                            <a href="#" class="btn btn-danger fw-bold mx-1">Delete</a>
+                            <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-message.php?id=<?= $result['id_timeline']?>" >Delete</a>
                         </div>
                     <?php } ?>     
                 </div>
