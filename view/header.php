@@ -8,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
@@ -17,6 +16,7 @@
 
     <!-- Sweetalert JS -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="view/style.css">
     <link rel="icon" type="image/x-icon" href="assets/images/icon_circleUAD.png">
     <title>Circle UAD</title>
@@ -25,22 +25,24 @@
 
 <?php if ( isset($_SESSION['user']) ) { ?>
 
-<div class="m-auto" style="width: 80%;" >
-  <nav class="navbar navbar-expand-lg py-4">
-    <a class="navbar-brand text-dark" href="index.php">Circle UAD</a>
+<div class="mx-auto" style="width: 80%;" >
+  <nav class="navbar navbar-expand-lg py-4 ">
+    <a class="navbar-brand" href="index.php">
+      <h2 class="text-primary fw-bold">Circle<span style="color: #FD841F;">UAD</span></h2>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+      <ul class="navbar-nav mr-auto flex-row" style="font-size: 14px;">
+        <li class="nav-item px-2">
           <a class="nav-link" href="index.php">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item px-2">
           <a class="nav-link" href="profile.php">Profile</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item px-2">
           <a class="nav-link text-danger" href="logout.php">Logout</a>
         </li>
     </div>
