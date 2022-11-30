@@ -38,4 +38,3 @@ function delete_message($id)
     if (mysqli_query($link, $query)) return true;
     else return false; 
 }
-?>
