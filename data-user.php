@@ -23,13 +23,14 @@ require_once 'view/header.php';
     </thead>
     <?php if (mysqli_num_rows($users) > 0) : ?>
         <?php $no = 1; ?>
-        <?php while ($r = mysqli_fetch_array($users)) : ?>
+        <?php while ($result = mysqli_fetch_array($users)) :
+        ?>
             <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $r['firstname'] . " " . $r['lastname'] ?></td>
-                <td><?= $r['email'] ?></td>
+                <td><?= $result['firstname'] . " " . $result['lastname'] ?></td>
+                <td><?= $result['email'] ?></td>
                 <td>
-                    <a href="delete-data-user.php" class="btn btn-danger fw-bold mx-1">Delete</a>
+                    <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-data-user.php?id=<?= $result['id_user'] ?>">Delete</a>
                     <a href="#" class="btn btn-warning fw-bold mx-1">Edit</a>
                 </td>
 

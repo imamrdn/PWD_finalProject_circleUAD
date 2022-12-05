@@ -1,20 +1,16 @@
 <?php
-session_start();
+require_once "core/init.php";
 
-require_once "functions/db.php";
-if ($link->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (isset($_GET['id'])) {   
+    if (delete_data_user($_GET['id'])) {
+        if (check_role($_SESSION['user']) == '1') {
+            header('Location: profile.php');
+        }
+        if (check_role($_SESSION['user']) == '0') {
+            header('Location: index.php');
+        }
+        set_flash_message('success', 'Successfully deleted message');
+    } else {
+        set_flash_message('error', 'Failed to delete messages');
+    }
 }
-
-
-
-// sql to delete a record
-$sql = "DELETE FROM users WHERE ";
-
-if ($link->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . $link->error;
-}
-
-$link->close();

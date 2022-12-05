@@ -100,4 +100,10 @@ function check_role($name)
     return $role;
 }
 
-?>
+function delete_data_user($id){
+    global $link;
+    $query = "DELETE FROM user WHERE id_user = $id";
+
+    if (mysqli_query($link, $query)) return true;
+    else return false; 
+}
