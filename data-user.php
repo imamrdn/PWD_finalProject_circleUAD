@@ -1,15 +1,15 @@
 <?php
-    require_once 'core/init.php';
+require_once 'core/init.php';
 
-    if (check_role($_SESSION['user']) == '0') {
-        set_flash_message('error', 'You have not access to this page');
-        header('Location: profile.php');
-    }
+if (check_role($_SESSION['user']) == '0') {
+    set_flash_message('error', 'You have not access to this page');
+    header('Location: profile.php');
+}
 
-    $name = get_name_user();
-    $users = get_all_user();
-    require_once 'view/header.php';
-    require_once 'view/header-profile.php';
+$name = get_name_user();
+$users = get_all_user();
+require_once 'view/header.php';
+require_once 'view/header-profile.php';
 ?>
 
 <table class="table table-striped table-hover my-3 mx-auto" style="border-radius: 10px; width:100%;">
@@ -31,7 +31,7 @@
                 <td><?= $result['email'] ?></td>
                 <td>
                     <span href="#" class="material-symbols-outlined btn btn-warning fw-bold">Edit</span>
-                    <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-user.php?id=<?= $result['id_user']?>">Delete</a>
+                    <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-user.php?id=<?= $result['id_user'] ?>">Delete</a>
                 </td>
 
             </tr>

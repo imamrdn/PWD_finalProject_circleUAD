@@ -18,4 +18,3 @@
     } else {
         set_flash_message('error', 'Failed to delete messages');
     }
-}
