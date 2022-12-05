@@ -14,6 +14,8 @@
         } else {
             set_flash_message('error', 'Failed to delete messages');
         }
+        set_flash_message('success', 'Successfully deleted message');
+    } else {
+        set_flash_message('error', 'Failed to delete messages');
     }
-
-?>
+}

@@ -41,7 +41,6 @@
             <td colspan="4" align="center">Data tidak ada!</td>
         </tr>
     <?php endif; ?>
-
 </table>
 
 <?php require_once 'view/footer.php' ?>

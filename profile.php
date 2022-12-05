@@ -47,5 +47,3 @@
 <?php } ?> 
 
 <?php require_once "view/footer.php"; ?>
-
-
