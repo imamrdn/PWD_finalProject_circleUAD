@@ -21,7 +21,7 @@ body, html {
     padding: 40px 30px;
     background-color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .register-form {
@@ -30,7 +30,7 @@ body, html {
     padding: 40px 30px;
     background-color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 input[type="text"],
@@ -39,6 +39,10 @@ input[type="password"] {
     border-radius: 5px;
     border: 1px solid rgb(224, 224, 224);
     padding: 10px 10px;
+}
+
+.btn {
+    border-radius: 5px;
 }
 
 .btn-login {
@@ -62,7 +66,7 @@ input[type="password"] {
 /* index.php */
 .message {
     width: 50%; 
-    border-radius: 10px; 
+    border-radius: 5px; 
     border: none; 
 }
 
