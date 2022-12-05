@@ -3,7 +3,7 @@
 function get_all_user()
 {
     global $link;
-    $query = "SELECT firstname, lastname, email FROM users WHERE role = 0";
+    $query = "SELECT * FROM users WHERE role = 0";
     $result = mysqli_query($link, $query);
 
     return $result;
@@ -12,7 +12,7 @@ function get_all_user()
 function get_name_user()
 {
     global $link;
-    $query = "SELECT firstname, lastname, email FROM users";
+    $query = "SELECT * FROM users";
     $result = mysqli_query($link, $query);
 
     return $result;
@@ -108,11 +108,14 @@ function check_role($name)
     return $role;
 }
 
-function delete_data_user($id)
+function delete_user($id)
 {
     global $link;
-    $query = "DELETE FROM user WHERE id_user = $id";
+    $query = "DELETE FROM users WHERE id_user = $id";
 
     if (mysqli_query($link, $query)) return true;
-    else return false;
+    else return false; 
 }
+
+?>
+

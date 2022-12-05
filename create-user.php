@@ -1,16 +1,17 @@
 <?php
-require_once 'core/init.php';
 
-if (check_role($_SESSION['user']) == '0') {
-    set_flash_message('error', 'You have not access to this page');
-    header('Location: profile.php');
-}
+    require_once 'core/init.php';
 
-$users = get_all_user();
-require_once 'view/header.php';
+    if (check_role($_SESSION['user']) == '0') {
+        set_flash_message('error', 'You have not access to this page');
+        header('Location: profile.php');
+    }
+
+    $name = get_name_user();
+    $users = get_all_user();
+    require_once 'view/header.php';
+    require_once 'view/header-profile.php';
 ?>
-
-<h1 class="fw-bold">Hi👋 <?php echo $_SESSION['user']; ?> </h1>
 
 <form action="" method="post">
     <div class="row mb-3">
