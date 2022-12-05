@@ -30,8 +30,8 @@ require_once 'view/header-profile.php';
                 <td><?= $result['firstname'] . " " . $result['lastname'] ?></td>
                 <td><?= $result['email'] ?></td>
                 <td>
-                    <span href="edit_data_user.php?id=<?php echo $data['id']; ?>" class="material-symbols-outlined btn btn-warning fw-bold">Edit</span>
-                    <span href="#" class="material-symbols-outlined btn btn-danger fw-bold">Delete</span>
+                    <span href="#" class="material-symbols-outlined btn btn-warning fw-bold">Edit</span>
+                    <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-user.php?id=<?= $result['id_user'] ?>">Delete</a>
                 </td>
 
             </tr>
@@ -41,11 +41,6 @@ require_once 'view/header-profile.php';
             <td colspan="4" align="center">Data tidak ada!</td>
         </tr>
     <?php endif; ?>
-
-    <tbody>
-
-    </tbody>
-</table>
 </table>
 
 <?php require_once 'view/footer.php' ?>
