@@ -1,31 +1,31 @@
-<?php 
+<?php
 
-    require_once "core/init.php";
+require_once "core/init.php";
 
-    // user is logged in
-    if ( isset($_SESSION['user']) ) {
-        header('Location: profile.php');
-    }
+// user is logged in
+if (isset($_SESSION['user'])) {
+    header('Location: profile.php');
+}
 
-    require_once "view/header.php";
+require_once "view/header.php";
 
 ?>
 
 <div class="container">
     <div style="margin-right: 10em;"">
-        <img src="assets/images/text_circleUAD.png" alt="image" width="400">
+        <img src=" assets/images/text_circleUAD.png" alt="image" width="400">
     </div>
-    <div class="card register-form shadow">             
+    <div class="card register-form shadow">
         <div class="card-body">
             <h2 class="card-title fw-bold">Create account</h2>
             <h6 class="card-subtitle text-muted mt-1 mb-5 fw-bold">Register yourself to enjoy this app</h6>
-            
+
             <form action="register-validation.php" method="post">
                 <div class="mb-3">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="lastname" id="lastname" class="form-control"  placeholder="Last Name">
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
                 </div>
                 <div class="mb-3">
                     <input type="email" name="email" id="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
@@ -42,7 +42,7 @@
                     <label>Already have an account ? <a href="login.php" class="link">Sign In</a></label>
                 </div>
             </form>
-            
+
         </div>
     </div>
 </div>

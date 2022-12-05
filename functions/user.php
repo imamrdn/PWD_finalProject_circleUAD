@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 function get_all_user()
 {
     global $link;
     $query = "SELECT firstname, lastname, email FROM users WHERE role = 0";
     $result = mysqli_query($link, $query);
-    
+
     return $result;
 }
 
@@ -14,7 +14,7 @@ function get_name_user()
     global $link;
     $query = "SELECT firstname, lastname, email FROM users";
     $result = mysqli_query($link, $query);
-    
+
     return $result;
 }
 
@@ -25,7 +25,7 @@ function register_user($firstname, $lastname, $email, $password)
     //avoid sql injection
     $firstname  = escape($firstname);
     $lastname   = escape($lastname);
-    $email      = escape($email); 
+    $email      = escape($email);
     $password   = escape($password);
 
     //password hash
@@ -40,12 +40,11 @@ function register_user($firstname, $lastname, $email, $password)
 function check_email($email)
 {
     global $link;
-    $email  = escape($email); 
+    $email  = escape($email);
     $query  = "SELECT * FROM users WHERE email = '$email'";
 
-    if ( $result = mysqli_query($link, $query) )
+    if ($result = mysqli_query($link, $query))
         return mysqli_num_rows($result);
-
 }
 
 function check_data($email, $password)
@@ -53,14 +52,14 @@ function check_data($email, $password)
     global $link;
 
     //avoid sql injection
-    $email      = escape($email); 
+    $email      = escape($email);
     $password   = escape($password);
 
     $query  = "SELECT password FROM users WHERE email = '$email'";
     $result = mysqli_query($link, $query);
     $hash = mysqli_fetch_assoc($result)['password'];
 
-    if(password_verify($password, $hash)) return true;
+    if (password_verify($password, $hash)) return true;
     else return false;
 }
 
@@ -109,10 +108,11 @@ function check_role($name)
     return $role;
 }
 
-function delete_data_user($id){
+function delete_data_user($id)
+{
     global $link;
     $query = "DELETE FROM user WHERE id_user = $id";
 
     if (mysqli_query($link, $query)) return true;
-    else return false; 
+    else return false;
 }

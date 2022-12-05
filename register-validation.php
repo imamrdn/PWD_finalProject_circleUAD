@@ -24,6 +24,4 @@
         } else set_flash_message('error','Please complete your data');
 
         header("Location: register.php");
-    } 
-
-?>
+    }
