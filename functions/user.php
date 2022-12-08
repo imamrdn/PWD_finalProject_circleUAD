@@ -18,6 +18,16 @@ function get_name_user()
     return $result;
 }
 
+function get_user_by_id($id)
+{
+    global $link;
+    $query = "SELECT * FROM users where id_user = $id";
+
+    $result = mysqli_query($link, $query);
+
+    return $result;
+}
+
 function register_user($firstname, $lastname, $email, $password)
 {
     global $link;
@@ -51,6 +61,25 @@ function create_user($firstname, $lastname, $email, $password, $role)
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     $query = "INSERT INTO users (firstname, lastname, email, password, role) VALUES ('$firstname', '$lastname', '$email', '$password','$role')";
+    if (mysqli_query($link, $query)) return true;
+    else return false;
+}
+
+function update_user($firstname, $lastname, $email, $password, $id)
+{
+    global $link;
+
+    //avoid sql injection
+    $firstname  = escape($firstname);
+    $lastname   = escape($lastname);
+    $email      = escape($email);
+    $password   = escape($password);
+
+    //password hash
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "UPDATE users SET firstname = $firstname, lastname = $lastname, email = $email, password = $password WHERE id_user = $id";
+    
     if (mysqli_query($link, $query)) return true;
     else return false;
 }

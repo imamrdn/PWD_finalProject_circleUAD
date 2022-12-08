@@ -30,7 +30,7 @@ require_once 'view/header-profile.php';
                 <td><?= $result['firstname'] . " " . $result['lastname'] ?></td>
                 <td><?= $result['email'] ?></td>
                 <td>
-                    <a class="material-symbols-outlined btn btn-warning fw-bold" href="edit-user.php">Edit</a>
+                    <a class="material-symbols-outlined btn btn-warning fw-bold" href="edit-user.php?id=<?= $result['id_user']?>">Edit</a>
                     <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-user.php?id=<?= $result['id_user'] ?>">Delete</a>
                 </td>
 

@@ -6,15 +6,20 @@ if (!isset($_SESSION['user'])) {
     set_flash_message('error', 'You are not logged in');
 }
 
+
 $timeline = get_all_message();
 require_once "view/header.php";
+
 ?>
+
+
 
 <div class="d-flex justify-content-center mx-auto mt-5 mb-2">
     <div class="mx-3" style="width: 50%">
         <form action="index-validation.php" method="post">
             <textarea class="form-control p-4" aria-label="With textarea" name="timeline" placeholder="What do you want to say ?" style="height: 90px; border:none; border-radius :10px;"></textarea>
             <div class="d-flex justify-content-start">
+                <input type="hidden" name="id_user" value=<?php echo $id ?>>
                 <input class="btn btn-primary fw-bold px-4 mt-3" name="submit" type="submit" value="Create Post">
             </div>
             <hr style="border: 1px solid grey">

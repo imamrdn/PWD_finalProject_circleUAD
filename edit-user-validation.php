@@ -7,22 +7,24 @@
         $lastname   = $_POST['lastname'];
         $email      = $_POST['email'];
         $password   = $_POST['password'];
-        $role       = $_POST['role'];
+        $id         = $_POST['id_user'];
 
         if (!empty(trim($firstname)) && !empty(trim($lastname))) {
             if (!empty(trim($email)) && !empty(trim($password))) {
-                //check data equality
-                if (check_email($email) == 0){
+
                     //insert data to database
-                    if (create_user($firstname, $lastname, $email, $password, $role)) {
-                        set_flash_message('success', 'Create user successful');
+                    if (update_user($firstname, $lastname, $email, $password, $id)) {
+                        set_flash_message('success', 'Update was successful');
                         header("Location: data-user.php");
                         die();
                     }
-                    else set_flash_message('error','Failed to create');
-                }
-            } else set_flash_message('error','Your email is not created');
+                    else set_flash_message('error','Failed to update user');
+                
+            } 
         } else set_flash_message('error','Please complete your data');
 
         header("Location: data-user.php");
+      
     }
+
+?>
