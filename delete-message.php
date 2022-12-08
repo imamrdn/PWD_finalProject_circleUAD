@@ -3,11 +3,11 @@
     
     if( isset($_GET['id']) ) {
         if (delete_message($_GET['id'])) {
-            if( check_role($_SESSION['user']) == '1' ) {
+            if( check_role($_SESSION['user']) == 'admin' ) {
                 header('Location: profile.php');
             } 
             
-            if( check_role($_SESSION['user']) == '0' ) {
+            if( check_role($_SESSION['user']) == 'client' ) {
                 header('Location: index.php');
             }    
             set_flash_message('success', 'Successfully deleted message');

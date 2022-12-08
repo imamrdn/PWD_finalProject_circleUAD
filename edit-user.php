@@ -13,8 +13,7 @@
     require_once 'view/header-profile.php';
 ?>
 
-
-<form action="create-user-validation.php" method="post" class="w-75 m-auto">
+<form action="" method="post" class="w-75 m-auto">
     <div class="row mb-3">
         <div class="col">
             <label for="First Name">First Name</label>
@@ -35,20 +34,16 @@
         <input type="password" class="form-control" placeholder="Password" name="password">
     </div>
 
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault1" value="admin">
-        <label class="form-check-label" for="flexRadioDefault1">
-            Admin
-        </label>
+   
+    <div class="dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Role
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Admin (1)</a></li>
+            <li><a class="dropdown-item" href="#">Client (0)</a></li>
+        </ul>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault2" value="client" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-            Client
-        </label>
-    </div>
-    <input type="submit" class="btn btn-primary mt-3" name="submit" value="Submit">
 
 </form>
-
-<?php require_once "view/footer.php" ?>

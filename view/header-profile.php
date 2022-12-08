@@ -10,7 +10,7 @@
         }
     }
 
-    if( check_role($_SESSION['user']) == '1' ) {
+    if( check_role($_SESSION['user']) == 'admin' ) {
 ?>
         <div class="d-flex justify-content-end">
             <a class="btn btn-primary fw-bold mx-1" href="profile.php">Message Data</a>

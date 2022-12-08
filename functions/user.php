@@ -3,7 +3,7 @@
 function get_all_user()
 {
     global $link;
-    $query = "SELECT * FROM users WHERE role = 0";
+    $query = "SELECT * FROM users WHERE role = 'client'";
     $result = mysqli_query($link, $query);
 
     return $result;
@@ -33,6 +33,24 @@ function register_user($firstname, $lastname, $email, $password)
 
     $query = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password')";
 
+    if (mysqli_query($link, $query)) return true;
+    else return false;
+}
+
+function create_user($firstname, $lastname, $email, $password, $role)
+{
+    global $link;
+
+    //avoid sql injection
+    $firstname  = escape($firstname);
+    $lastname   = escape($lastname);
+    $email      = escape($email);
+    $password   = escape($password);
+
+    //password hash
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO users (firstname, lastname, email, password, role) VALUES ('$firstname', '$lastname', '$email', '$password','$role')";
     if (mysqli_query($link, $query)) return true;
     else return false;
 }

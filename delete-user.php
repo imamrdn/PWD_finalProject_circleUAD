@@ -3,7 +3,7 @@
     
     if( isset($_GET['id']) ) {
         if (delete_user($_GET['id'])) {
-            if( check_role($_SESSION['user']) == '1' ) {
+            if( check_role($_SESSION['user']) == 'admin' ) {
                 header('Location: data-user.php');
             } 
             set_flash_message('success', 'Successfully deleted user');

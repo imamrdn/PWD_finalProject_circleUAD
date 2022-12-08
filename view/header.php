@@ -17,7 +17,7 @@
     <!-- Sweetalert JS -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="view/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/images/icon_circleUAD.png">
     <title>Circle UAD</title>
   </head>
