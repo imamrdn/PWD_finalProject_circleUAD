@@ -13,7 +13,7 @@
 ?>  
 
 <?php 
-    if( check_role($_SESSION['user']) == '1' )
+    if( check_role($_SESSION['user']) == 'admin' )
         require_once "data-message.php";
 
     if (mysqli_num_rows($timeline) > 0) {

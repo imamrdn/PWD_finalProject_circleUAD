@@ -1,7 +1,7 @@
 <?php
 require_once 'core/init.php';
 
-if (check_role($_SESSION['user']) == '0') {
+if (check_role($_SESSION['user']) == 'client') {
     set_flash_message('error', 'You have not access to this page');
     header('Location: profile.php');
 }
@@ -30,7 +30,7 @@ require_once 'view/header-profile.php';
                 <td><?= $result['firstname'] . " " . $result['lastname'] ?></td>
                 <td><?= $result['email'] ?></td>
                 <td>
-                    <span href="#" class="material-symbols-outlined btn btn-warning fw-bold">Edit</span>
+                    <a class="material-symbols-outlined btn btn-warning fw-bold" href="edit-user.php?id=<?= $result['id_user']?>">Edit</a>
                     <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-user.php?id=<?= $result['id_user'] ?>">Delete</a>
                 </td>
 

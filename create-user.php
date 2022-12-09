@@ -2,7 +2,7 @@
 
     require_once 'core/init.php';
 
-    if (check_role($_SESSION['user']) == '0') {
+    if (check_role($_SESSION['user']) == 'client') {
         set_flash_message('error', 'You have not access to this page');
         header('Location: profile.php');
     }
@@ -13,7 +13,8 @@
     require_once 'view/header-profile.php';
 ?>
 
-<form action="" method="post">
+
+<form action="create-user-validation.php" method="post" class="w-75 m-auto">
     <div class="row mb-3">
         <div class="col">
             <label for="First Name">First Name</label>
@@ -34,38 +35,20 @@
         <input type="password" class="form-control" placeholder="Password" name="password">
     </div>
 
-    <div class="col mb-3">
-        <input type="radio" name="role" value="admin">Admin
-        <input type="radio" name="role" value="user">User
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault1" value="admin">
+        <label class="form-check-label" for="flexRadioDefault1">
+            Admin
+        </label>
     </div>
-
-    <div class="col mb-3">
-        <button type="submit" class="btn btn-success">Create User</button>
-        <button type="button" class="btn btn-danger">Reset Data</button>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="role" id="flexRadioDefault2" value="client" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+            Client
+        </label>
     </div>
-
+    <input type="submit" class="btn btn-primary mt-3" name="submit" value="Submit">
 
 </form>
-<?php
 
-//cek data udah disubmit/belum
-if (isset($_POST['submit'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
-
-    //masukin ke table database
-    $result = mysqli_query($link, "INSERT INTO users (id, firstname, lastname, email, password, role) VALUES ('','$firstname', '$lastname', '$email', '$password', '$role')");
-
-    header("location: data-user.php");
-
-    if ($result) {
-        echo "Data berhasil ditambahkan";
-    } else {
-        echo "program gagal";
-    }
-}
-
-?>
+<?php require_once "view/footer.php" ?>
