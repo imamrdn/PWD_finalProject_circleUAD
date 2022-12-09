@@ -5,13 +5,16 @@
         if (delete_message($_GET['id'])) {
             if( check_role($_SESSION['user']) == '1' ) {
                 header('Location: profile.php');
-            } if( check_role($_SESSION['user']) == '0' ) {
+            } 
+            
+            if( check_role($_SESSION['user']) == '0' ) {
                 header('Location: index.php');
             }    
             set_flash_message('success', 'Successfully deleted message');
         } else {
             set_flash_message('error', 'Failed to delete messages');
         }
+        set_flash_message('success', 'Successfully deleted message');
+    } else {
+        set_flash_message('error', 'Failed to delete messages');
     }
-
-?>

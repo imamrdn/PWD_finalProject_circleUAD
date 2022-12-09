@@ -18,6 +18,4 @@ if (isset($_POST['submit'])) {
     } else set_flash_message('error', 'Please enter email and your password');
 
     header("Location: login.php");
-} 
-
-?>
+}

@@ -6,14 +6,12 @@ if (check_role($_SESSION['user']) == '0') {
     header('Location: profile.php');
 }
 
+$name = get_name_user();
 $users = get_all_user();
 require_once 'view/header.php';
+require_once 'view/header-profile.php';
 ?>
-<h1 class="fw-bold">Hi👋 <?php echo $_SESSION['user']; ?> </h1>
-<div class="d-flex justify-content-end">
-    <a class="btn btn-success fw-bold mx-1" href="create-user.php">Create User</a>
-</div>
-<hr style="border: solid 1px gray">
+
 <table class="table table-striped table-hover my-3 mx-auto" style="border-radius: 10px; width:100%;">
     <caption>List of users</caption>
     <thead>
@@ -33,7 +31,7 @@ require_once 'view/header.php';
                 <td><?= $result['email'] ?></td>
                 <td>
                     <span href="#" class="material-symbols-outlined btn btn-warning fw-bold">Edit</span>
-                    <span href="#" class="material-symbols-outlined btn btn-danger fw-bold">Delete</span>
+                    <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-user.php?id=<?= $result['id_user'] ?>">Delete</a>
                 </td>
 
             </tr>

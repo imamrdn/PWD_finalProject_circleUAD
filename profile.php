@@ -9,7 +9,7 @@
     $timeline = get_all_message();
     $name = get_name_user();
     require_once "view/header.php";
-    require_once "view/header-profile.php"
+    require_once "view/header-profile.php";
 ?>  
 
 <?php 
@@ -37,7 +37,7 @@
 
                         <div class="d-flex justify-content-end">
                             <a href="#" class="btn btn-warning fw-bold mx-1">Edit</a>
-                            <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-message.php?id=<?= $result['id_timeline']?>" >Delete</a>
+                            <a class="material-symbols-outlined btn btn-danger fw-bold" href="delete-message.php?id=<?= $result['id_timeline']?>">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -47,5 +47,3 @@
 <?php } ?> 
 
 <?php require_once "view/footer.php"; ?>
-
-
