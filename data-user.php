@@ -43,13 +43,6 @@ require_once 'view/header.php';
             <td colspan="4" align="center">Data tidak ada!</td>
         </tr>
     <?php endif; ?>
-
-    <<<<<<< HEAD <tbody>
-
-        </tbody>
 </table>
-=======
-</table>
->>>>>>> e0362e651c48204e4f34f38afb6b570bc7734f6e
 
 <?php require_once 'view/footer.php' ?>
