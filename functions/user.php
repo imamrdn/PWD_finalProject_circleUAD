@@ -28,6 +28,17 @@ function get_user_by_id($id)
     return $result;
 }
 
+function get_user_by_email($email)
+{
+    global $link;
+    $query = "SELECT * FROM users where email = '$email' LIMIT 1";
+
+    $result = mysqli_query($link, $query);
+    $result = mysqli_fetch_assoc($result);
+
+    return $result;
+}
+
 function register_user($firstname, $lastname, $email, $password)
 {
     global $link;
@@ -78,7 +89,7 @@ function update_user($firstname, $lastname, $email, $password, $id)
     //password hash
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "UPDATE users SET firstname = $firstname, lastname = $lastname, email = $email, password = $password WHERE id_user = $id";
+    $query = "UPDATE users SET firstname = '$firstname', lastname = '$lastname', email = '$email', password = '$password' WHERE id_user = '$id'";
     
     if (mysqli_query($link, $query)) return true;
     else return false;
@@ -165,4 +176,3 @@ function delete_user($id)
 }
 
 ?>
-

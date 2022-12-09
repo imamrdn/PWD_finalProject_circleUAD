@@ -3,8 +3,8 @@
     require_once "core/init.php";
 
     // timeline validation
-    if (isset($_POST['submit'])) {
-        $message    = $_POST['message'];
+    if (isset($_POST['timeline'])) {
+        $message    = $_POST['timeline'];
         $id_user    = $_POST['id_user'];
 
         if (!empty(trim($message))) {

@@ -26,7 +26,18 @@ function create_post($message, $id_user)
     $message  = escape($message);
     $query = "INSERT INTO timeline (message, created_at, id_user) VALUES ('$message', CURRENT_TIMESTAMP(), '$id_user')";
 
-    die($query);
+    if (mysqli_query($link, $query)) return true;
+    else return false;
+}
+
+function update_post($message, $id_timeline)
+{
+    global $link;
+
+    //avoid sql injection
+    $message  = escape($message);
+    $query = "UPDATE timeline SET message = '$message' WHERE id_timeline = '$id_timeline' ";
+
     if (mysqli_query($link, $query)) return true;
     else return false;
 }
