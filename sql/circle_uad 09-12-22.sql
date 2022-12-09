@@ -32,7 +32,7 @@ CREATE TABLE `timeline` (
   `message` text NOT NULL,
   `created_at` datetime NOT NULL,
   `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 --
 -- Dumping data for table `timeline`
