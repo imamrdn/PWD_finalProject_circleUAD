@@ -1,16 +1,16 @@
 <?php
 
-    require_once 'core/init.php';
+require_once 'core/init.php';
 
-    if (check_role($_SESSION['user']) == '0') {
-        set_flash_message('error', 'You have not access to this page');
-        header('Location: profile.php');
-    }
+if (check_role($_SESSION['user']) == '0') {
+    set_flash_message('error', 'You have not access to this page');
+    header('Location: profile.php');
+}
 
-    $name = get_name_user();
-    $users = get_all_user();
-    require_once 'view/header.php';
-    require_once 'view/header-profile.php';
+$name = get_name_user();
+$users = get_all_user();
+require_once 'view/header.php';
+require_once 'view/header-profile.php';
 ?>
 
 <form action="" method="post">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="col mb-3">
-        <button type="submit" class="btn btn-success">Create User</button>
+        <button type="button" name="submit" class="btn btn-success">Create User</button>
         <button type="button" class="btn btn-danger">Reset Data</button>
     </div>
 
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
     $role = $_POST['role'];
 
     //masukin ke table database
-    $result = mysqli_query($link, "INSERT INTO users (id, firstname, lastname, email, password, role) VALUES ('','$firstname', '$lastname', '$email', '$password', '$role')");
+    $result = mysqli_query($link, "INSERT INTO users (firstname, lastname, email, password, role) VALUES ('$firstname', '$lastname', '$email', '$password', '$role')");
 
     header("location: data-user.php");
 
